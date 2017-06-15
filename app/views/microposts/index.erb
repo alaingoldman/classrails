@@ -1,0 +1,7 @@
+<h2> all microposts </h2>
+
+<% @microposts.each do |x| %>
+	<div>
+		<%= link_to x.message, micropost_path(x) %>
+	</div>
+<% end %>

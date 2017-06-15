@@ -1,0 +1,14 @@
+<h2> new page </h2>
+
+<%= form_for @micropost do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br />
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+	<br />
+	<%= f.label :message %>
+	<%= f.text_field :message %>
+	<br />
+	<%= f.submit "submit", :class => "btn btn-success" %>
+<% end %>
