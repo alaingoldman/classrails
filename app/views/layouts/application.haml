@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Xapp
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to "home", root_url, :class => "navbar-brand"
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            - if current_user
+              %li
+                = link_to "logout", destroy_user_session_path, method: "delete"
+              %li 
+                = link_to "new", new_micropost_path
+            - else
+              %li
+                = link_to "contact", contact_path
+              %li
+                = link_to "about", about_path
+              %li
+                = link_to "index", microposts_path
+              %li
+                = link_to "sign up", new_user_registration_path
+              %li 
+                = link_to "login", new_user_session_path
+    .container.obscurenamedclass
+      .row
+        .col-lg-12.text-center
+          - flash.each do |key, value|
+            %div{:class => "alert alert-#{key}"}
+              = value
+          = yield

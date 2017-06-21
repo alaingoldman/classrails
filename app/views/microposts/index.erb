@@ -1,7 +1,30 @@
-<h2> all microposts </h2>
+<h2> find post by user </h2>
 
-<% @microposts.each do |x| %>
-	<div>
-		<%= link_to x.message, micropost_path(x) %>
-	</div>
+
+
+
+
+
+<%= form_tag '/microposts', method: "get" do %>
+	<%= label_tag(:search, "Search for:") %>
+	<%= text_field_tag(:search) %>
 <% end %>
+
+
+
+
+
+
+
+<% if @microposts != nil %>
+	<% @microposts.each do |x| %>
+		<div>
+			<%= link_to x.message, micropost_path(x) %>
+		</div>
+	<% end %>
+<% end %>
+
+
+
+
+

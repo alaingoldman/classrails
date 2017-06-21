@@ -4,20 +4,5 @@
 <h2> <%= @micropost.name %> </h2>
 <h2> <%= @micropost.message %> </h2>
 
-
-<%= link_to "edit", edit_micropost_path, :class => "btn btn-danger" %>
-
-
-<!-- 
-
-
-
-1.  give me this link 
-2.  copy n paste the stuff from new.erb
-3.  make a file called edit.erb
-4.  paste in the stuff from new.erb to edit.erb 
-5.  see what edit looks like  
-
-
-
--->
+<%= link_to "edit", edit_micropost_path, :class => "btn btn-warning" %>
+<%= link_to "delete", micropost_path(@micropost), :class => "btn btn-danger", method: "delete"%>
